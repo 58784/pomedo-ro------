@@ -34,6 +34,9 @@
 # イメージ図
 [![Image from Gyazo](https://i.gyazo.com/46c5eaeab101c975f92be9e5d3399c27.png)](https://gyazo.com/46c5eaeab101c975f92be9e5d3399c27)
 
+# 画面遷移図
+[画面遷移](https://www.figma.com/file/tQ1GWcTLn2PPqpEKpPRVUf/%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?node-id=3%3A3)
+
 # スケジュール
 README〜ER図作成：5/7 〆切
 メイン機能実装：5/8 - 6/8
