@@ -37,6 +37,42 @@
 # 画面遷移図
 [画面遷移](https://www.figma.com/file/tQ1GWcTLn2PPqpEKpPRVUf/%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?node-id=3%3A3)
 
+# ER図
+[ER図](https://drive.google.com/file/d/1crUjsJVvBXVs7idGJzqUS9QXrAEmxRJd/view?usp=sharing)
+
+### Userテーブル
+has_many: Timer
+・email ▶︎string
+・password_digest ▶︎string 
+
+### Timerテーブル
+belongs to: User
+has_many: CharacterTimer
+・name ▶︎string
+・work_time(ポモドーロの25分に該当する箇所) ▶︎time
+・rest_time(ポモドーロの5分休憩に該当する箇所) ▶︎time
+・implementation_time(ポモドーロを◯時~◯時の間実行する時間) ▶︎time
+・switch(ON/OFFの切り替え) ▶︎boolean
+・repetition(くり返し) ▶︎enum
+
+### characterテーブル
+has_many: CharacterTimer
+has_many: CharacterSound
+・avatar(キャラ選択) ▶︎enum
+
+### CharacterTimerテーブル
+belongs_to: Timer
+belongs_to: Character
+
+### Soundテーブル
+has_many: CharacterSound
+・volume ▶︎integer
+・notification_sound(通知音選択) ▶︎enum
+
+### CharacterSoundテーブル
+belongs_to: Sound
+belongs_to: Character
+
 # スケジュール
 README〜ER図作成：5/7 〆切
 メイン機能実装：5/8 - 6/8
