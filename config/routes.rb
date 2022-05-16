@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'top', to: 'tops#index'
-  get    'login',   to: 'sessions#new'
-  post   'login',   to: 'sessions#create'
-  delete 'logout',  to: 'sessions#destroy'
+  get    'login',   to: 'user_sessions#new'
+  post   'login',   to: 'user_sessions#create'
+  delete 'logout',  to: 'user_sessions#destroy'
 end
