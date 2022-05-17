@@ -9,6 +9,7 @@ class UserSessionsController < ApplicationController
 
     if @user
       redirect_back_or_to top_path
+    else
       render :new
     end
   end
