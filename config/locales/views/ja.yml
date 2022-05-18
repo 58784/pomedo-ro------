@@ -1,5 +1,14 @@
 ja:
   user_sessions:
     new:
+      title: 'Log in'
       email: 'メールアドレス'
       password: 'パスワード'
+  users:
+    new:
+      title: 'Sign up'
+  password_resets:
+    new:
+      title: 'パスワードリセット'
+    edit:
+      title: 'パスワード変更'
