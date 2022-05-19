@@ -5,9 +5,15 @@ class PasswordResetsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(email: params[:email])
-    @user&.deliver_reset_password_instructions!
-    redirect_to login_path
+    @email = params[:email]
+    if @email.blank?
+      flash.now[:alert] = "メーアドレスを入力してください"
+      render :new
+    else
+      @user = User.find_by(email: params[:email])
+      @user&.deliver_reset_password_instructions!
+      redirect_to login_path, notice: "メールを送信しました"
+    end
   end
 
   def edit
@@ -23,10 +29,16 @@ class PasswordResetsController < ApplicationController
     return not_authenticated if @user.blank?
 
     @user.password_confirmation = params[:user][:password_confirmation]
-    if @user.change_password(params[:user][:password])
-      redirect_to login_path
-    else
+    if @user.password_confirmation.blank?
+      flash.now[:danger] = "新しいパスワードを入力してください"
       render :edit
+    else
+      if @user.change_password(params[:user][:password])
+        redirect_to login_path, notice: "パスワードを変更できました"
+      else
+        flash.now[:danger] = "パスワード変更出来ませんでした"
+        render :edit
+      end
     end
   end
 end
