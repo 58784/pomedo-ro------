@@ -2,8 +2,22 @@ ja:
   activerecord:
     models:
       user: 'ユーザー'
+      timer: 'タイマー'
     attributes:
       user:
         email: 'メールアドレス'
         password: 'パスワード'
         password_confirmation: 'パスワード確認'
+      timer:
+        name: 'タイマー名'
+        work_time: '稼働時間'
+        rest_time: '休憩時間'
+        implementation_time: '時間帯'
+        character: 'キャラクター'
+        switch: 'スイッチ'
+        repetition: 'くり返し'
+        sound: '音量'
+  enums:
+    timer:
+      character:
+        pome: 'ポメラニアン'
