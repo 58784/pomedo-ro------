@@ -1,0 +1,8 @@
+<h1>タイマー一覧</h1>
+<% if current_user.timers.exists? %>
+    <%= current_user.timer each do %>
+        <%= current_user.timer %>
+    <%end%>
+<%else%>
+    <p>タイマーはありません。新しく作成しましょう！</p>
+<%end%>

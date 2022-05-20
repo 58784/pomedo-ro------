@@ -1,0 +1,25 @@
+<h1>タイマー作成</h1>
+<%= form_with model: @timer, local: true do |f| %>
+    <%= render 'shared/error_messages', object: f.object %> 
+
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :work_time %>
+    <%= f.text_field :work_time %>
+
+    <%= f.label :rest_time %>
+    <%= f.text_field :rest_time %>
+
+    <%= f.label :implementation_time %>
+    <%= f.text_field :implementation_time %>
+
+    <%= f.label :repetition %>
+    <%= f.text_field :repetition %>
+
+    <%= f.label :character %>
+    <%= f.text_field :character %>
+
+    <%= f.submit "作成する" %>
+<% end %>
+
