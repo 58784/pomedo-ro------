@@ -1,25 +1,95 @@
+<% content_for(:title, t('.title')) %>
+
 <h1>タイマー作成</h1>
 <%= form_with model: @timer, local: true do |f| %>
-    <%= render 'shared/error_messages', object: f.object %> 
+    <%= render 'shared/error_messages', object: f.object %>   
 
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+    <div>
+        <%= f.label :name %>
+        <%= f.text_field :name, placeholder: "タイマー#{current_user.timers.count + 1}" %>
+    </div>
 
-    <%= f.label :work_time %>
-    <%= f.text_field :work_time %>
+    <div>
+        <%= f.label :work_time %>
+        <%= f.time_field :work_time %>
+    </div>
 
-    <%= f.label :rest_time %>
-    <%= f.text_field :rest_time %>
+    <div>
+        <%= f.label :rest_time %>
+        <%= f.time_field :rest_time %>
+    </div>
 
-    <%= f.label :implementation_time %>
-    <%= f.text_field :implementation_time %>
+    <div>
+        <%= f.label :implementation_time %>
+        <%= f.time_field :implementation_time %>
+    </div>
 
-    <%= f.label :repetition %>
-    <%= f.text_field :repetition %>
+    <div>
+        <div><%= f.label :repetition %></div>
 
-    <%= f.label :character %>
-    <%= f.text_field :character %>
+        <div>
+            <%= f.label :repetition, "くり返しなし" %>
+            <%= f.radio_button :repetition, :no_repeat, checked: true%>
+        </div>
+
+        <div>
+            <%= f.label :repetition, "毎日" %>
+            <%= f.radio_button :repetition, :everyday %>
+        </div>
+
+        <div>
+            <%= f.label :repetition, "毎月曜日" %>
+            <%= f.radio_button :repetition, :monday %>
+        </div>
+
+        <div>
+            <%= f.label :repetition, "毎火曜日" %>
+            <%= f.radio_button :repetition, :tuesday %>
+        </div>
+
+        <div>
+            <%= f.label :repetition, "毎水曜日" %>
+            <%= f.radio_button :repetition, :wednesday %>
+        </div>
+
+        <div>
+            <%= f.label :repetition, "毎木曜日" %>
+            <%= f.radio_button :repetition, :thursday %>
+        </div>
+
+        <div>
+            <%= f.label :repetition, "毎金曜日" %>
+            <%= f.radio_button :repetition, :friday %>
+        </div>
+
+        <div>
+            <%= f.label :repetition, "毎土曜日" %>
+            <%= f.radio_button :repetition, :saturday %>
+        </div>
+
+        <div>
+            <%= f.label :repetition, "毎日曜日" %>
+            <%= f.radio_button :repetition, :sunday %>
+        </div>
+    </div>
+
+    <div>
+        <%= f.label :character %>
+        <%= f.select :character, Timer.characters_i18n.invert %>
+    </div>
+
+    <div>
+        <%= f.label :switch%>
+        <%= f.select :switch, Timer.switches_i18n.invert %>
+    </div>
+
+    <div>
+        <%= f.label :sound%>
+        <%= f.text_field :sound %>
+    </div>
 
     <%= f.submit "作成する" %>
 <% end %>
+
+<%= link_to "戻る", timers_path %>
 
