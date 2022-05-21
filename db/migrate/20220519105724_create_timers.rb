@@ -6,7 +6,7 @@ class CreateTimers < ActiveRecord::Migration[6.1]
       t.datetime :rest_time, null: false
       t.datetime :implementation_time
       t.integer :switch, default: 0, null: false
-      t.boolean :repetition
+      t.integer :repetition, default: 0, null: false
       t.integer :character, default: 0, null: false
       t.integer :sound
       t.references :user, null: false, foreign_key: true

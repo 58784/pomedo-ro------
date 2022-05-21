@@ -1,15 +1,16 @@
 class TimersController < ApplicationController
-    before_action :set_timer, only: %i[ show show update destroy ]
+    before_action :set_timer, only: %i[ show update destroy ]
 
     def index
         @timers = current_user.timers.all
     end
 
     def new
+        @timer = current_user.timers.new
     end
 
     def create
-        @timer = current_user.timer.new(timer_params)
+        @timer = current_user.timers.new(timer_params)
         if @timer.save
             redirect_to timers_path, notice: "タイマーを作成しました"
         else

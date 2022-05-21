@@ -1,8 +1,12 @@
+<% content_for(:title, t('.title')) %>
+
 <h1>タイマー一覧</h1>
 <% if current_user.timers.exists? %>
-    <%= current_user.timer each do %>
-        <%= current_user.timer %>
+    <%= current_user.timers.each do |f| %>
+        <%= current_user.timers %>
     <%end%>
 <%else%>
     <p>タイマーはありません。新しく作成しましょう！</p>
 <%end%>
+
+<%= link_to "+ タイマー作成", new_timer_path %>

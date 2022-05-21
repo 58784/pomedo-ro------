@@ -16,8 +16,21 @@ ja:
         character: 'キャラクター'
         switch: 'スイッチ'
         repetition: 'くり返し'
-        sound: '音量'
+        sound: '通知音'
   enums:
     timer:
       character:
         pome: 'ポメラニアン'
+      switch:
+        on: 'ON'
+        off: 'OFF'
+      repetition:
+        no_repeat: 'くり返しなし'
+        everyday: '毎日'
+        monday: '毎月曜日'
+        tuesday: '毎火曜日'
+        wednesday: '毎水曜日'
+        thursday: '毎木曜日'
+        friday: '毎金曜日'
+        saturday: '毎土曜日'
+        sunday: '毎日曜日'

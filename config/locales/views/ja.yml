@@ -12,3 +12,8 @@ ja:
       title: 'パスワードリセット'
     edit:
       title: 'パスワード変更'
+  timers:
+    index:
+      title: 'タイマー一覧'
+    new:
+      title: 'タイマー作成'
