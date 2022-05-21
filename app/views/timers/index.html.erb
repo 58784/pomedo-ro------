@@ -2,9 +2,31 @@
 
 <h1>タイマー一覧</h1>
 <% if current_user.timers.exists? %>
-    <%= current_user.timers.each do |f| %>
-        <%= current_user.timers %>
-    <%end%>
+    <table>
+        <thead>
+            <tr>
+                <th>タイマー名</th>
+                <th>稼働時間</th>
+                <th>休憩時間</th>
+                <th>キャラクター</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <% current_user.timers.each do |f| %>
+                    <div>
+                        <td><%= f.name%></td>
+                        <td><%= f.work_time.strftime('%H:%M')%></td>
+                        <td><%= f.rest_time.strftime('%H:%M')%></td>
+                        <td><%= f.character_i18n%></td>
+                        <td><%= link_to "編集", edit_timer_path(f)%></td>
+                        <td><%= link_to "削除", timer_path(f), method: :delete%></td>
+                        <td></td>
+                    </div>
+            </tr>
+                <%end%>
+        </tbody>
+    </table>
 <%else%>
     <p>タイマーはありません。新しく作成しましょう！</p>
 <%end%>

@@ -46,6 +46,6 @@ class TimersController < ApplicationController
     end
 
     def set_timer
-        @timer = current_user.timer.find(params[:id])
+        @timer = current_user.timers.find(params[:id])
     end
 end
