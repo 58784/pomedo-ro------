@@ -39,7 +39,7 @@ class TimersController < ApplicationController
     private
     
     def timer_params
-        params.require(:timer).permit(:name, :work_time, :rest_time, :implementation_time, :switch, :repetition, :character, :sound)
+        params.require(:timer).permit(:name, :work_time, :rest_time, :start_time, :finish_time, :switch, :repetition, :character, :sound)
     end
 
     def set_timer

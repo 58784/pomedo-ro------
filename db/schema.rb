@@ -19,7 +19,8 @@ ActiveRecord::Schema.define(version: 2022_05_19_105724) do
     t.string "name", null: false
     t.datetime "work_time", null: false
     t.datetime "rest_time", null: false
-    t.datetime "implementation_time"
+    t.datetime "start_time"
+    t.datetime "finish_time"
     t.integer "switch", default: 0, null: false
     t.integer "repetition", default: 0, null: false
     t.integer "character", default: 0, null: false
