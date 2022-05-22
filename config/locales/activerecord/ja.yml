@@ -22,9 +22,6 @@ ja:
     timer:
       character:
         pome: 'ポメラニアン'
-      switch:
-        on: 'ON'
-        off: 'OFF'
       repetition:
         no_repeat: 'くり返しなし'
         everyday: '毎日'
