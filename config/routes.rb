@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[new create show edit update destroy]
   resources :password_resets, only: %i[new create edit update]
-  resources :timers
+  resources :timers, only: %i[index new create edit update destroy]
   
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 end

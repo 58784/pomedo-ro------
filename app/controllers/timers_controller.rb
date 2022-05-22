@@ -1,5 +1,5 @@
 class TimersController < ApplicationController
-    before_action :set_timer, only: %i[ show update destroy ]
+    before_action :set_timer, only: %i[ edit update destroy ]
 
     def index
         @timers = current_user.timers.all
@@ -19,15 +19,12 @@ class TimersController < ApplicationController
         end
     end
 
-    def show
-    end
-
     def edit
     end
 
     def update
-        if @timer.update
-            redirect_to timer_path(@timer), notice: "タイマーを更新しました"
+        if @timer.update(timer_params)
+            redirect_to timers_path, notice: "タイマーを更新しました"
         else
             flash.now[:alert] = "タイマーを更新できませんでした"
             render :edit
