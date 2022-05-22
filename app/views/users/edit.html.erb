@@ -1,0 +1,15 @@
+<% content_for(:title, t('.title')) %>
+
+<h1>マイページ</h1>
+<%= form_with model: @user, local: true do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <div>
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+        <%= f.submit "更新する" %>
+    </div>
+<%end%>
+<div>
+    <%= link_to "アカウントを削除する", user_path(current_user), method: :delete%>
+</div>
+<%= link_to "戻る", timers_path %>

@@ -5,12 +5,12 @@
     <table>
         <thead>
             <tr>
-                <th>タイマー名</th>
-                <th>稼働時間</th>
-                <th>休憩時間</th>
-                <th>開始時間</th>
-                <th>終了時間</th>
-                <th>キャラクター</th>
+                <th><%= Timer.human_attribute_name("name")%></th>
+                <th><%= Timer.human_attribute_name("work_time")%></th>
+                <th><%= Timer.human_attribute_name("rest_time")%></th>
+                <th><%= Timer.human_attribute_name("start_time")%></th>
+                <th><%= Timer.human_attribute_name("finish_time")%></th>
+                <th><%= Timer.human_attribute_name("character")%></th>
             </tr>
         </thead>
         <tbody>
@@ -36,3 +36,4 @@
 <%end%>
 
 <%= link_to "+ タイマー作成", new_timer_path %>
+<%= link_to "マイページ", edit_user_path(current_user) %>
