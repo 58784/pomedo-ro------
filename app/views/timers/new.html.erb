@@ -6,22 +6,25 @@
 
     <div>
         <%= f.label :name %>
-        <%= f.text_field :name, placeholder: "タイマー#{current_user.timers.count + 1}" %>
+        <%= f.text_field :name, value: "タイマー#{current_user.timers.count + 1}" %>
     </div>
 
     <div>
         <%= f.label :work_time %>
-        <%= f.time_field :work_time %>
+        <%= f.time_field :work_time, value: "00:25" %>
     </div>
 
     <div>
         <%= f.label :rest_time %>
-        <%= f.time_field :rest_time %>
+        <%= f.time_field :rest_time, value: "00:05" %>
     </div>
 
     <div>
-        <%= f.label :implementation_time %>
-        <%= f.time_field :implementation_time %>
+        <%= f.label :start_time %>
+        <%= f.time_field :start_time, value: "00:00" %>
+        <span>〜</span>
+        <%= f.label :finish_time %>
+        <%= f.time_field :finish_time, value: "00:00" %>
     </div>
 
     <div>

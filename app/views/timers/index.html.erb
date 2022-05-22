@@ -8,6 +8,8 @@
                 <th>タイマー名</th>
                 <th>稼働時間</th>
                 <th>休憩時間</th>
+                <th>開始時間</th>
+                <th>終了時間</th>
                 <th>キャラクター</th>
             </tr>
         </thead>
@@ -18,6 +20,8 @@
                         <td><%= f.name%></td>
                         <td><%= f.work_time.strftime('%H:%M')%></td>
                         <td><%= f.rest_time.strftime('%H:%M')%></td>
+                        <td><%= f.start_time.strftime('%H:%M')%></td>
+                        <td><%= f.finish_time.strftime('%H:%M')%></td>
                         <td><%= f.character_i18n%></td>
                         <td><%= link_to "編集", edit_timer_path(f)%></td>
                         <td><%= link_to "削除", timer_path(f), method: :delete%></td>
