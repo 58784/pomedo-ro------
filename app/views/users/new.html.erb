@@ -1,17 +1,23 @@
 <% content_for(:title, t('.title')) %>
+<div class="text-center">
+    <div class="form-signin">
+        <h3 class="my-5 fw-normal">Sign up</h3>
+        <%= form_with model: @user, local: true do |f| %>
+            <%= render 'shared/error_messages', object: f.object %> 
 
-<h1>Sign up</h1>
-<%= form_with model: @user, local: true do |f| %>
-    <%= render 'shared/error_messages', object: f.object %> 
+            <div class="form-floating mb-3">
+                <%= f.text_field :email, placeholder: "メールアドレス" %>
+            </div>
 
-    <%= f.label :email %>
-    <%= f.text_field :email %>
+            <div class="form-floating mb-3">
+                <%= f.password_field :password, placeholder: "パスワード" %>
+            </div>
 
-    <%= f.label :password %>
-    <%= f.password_field :password %>
+            <div class="form-floating mb-4">
+                <%= f.password_field :password_confirmation, placeholder: "パスワード確認" %>
+            </div>
 
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
-
-    <%= f.submit "Sign up" %>
-<% end %>
+            <%= f.submit "Sign up", class: "mb-3 btn btn-warning" %>
+        <% end %>
+        </div>
+        </div>
