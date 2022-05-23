@@ -1,7 +1,7 @@
 <% content_for(:title, t('.title')) %>
 <div class="text-center">
     <div class="form-signin">
-        <h1 class="h3 my-5 fw-normal">Log in</h1>
+        <h3 class="my-5 fw-normal">Log in</h3>
         <%= form_with url: login_path, local: true do |f| %>
             <div class="form-floating mb-3">
                 <%= f.email_field :email, placeholder: "メールアドレス" %>
