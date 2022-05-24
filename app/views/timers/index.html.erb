@@ -1,8 +1,11 @@
 <% content_for(:title, t('.title')) %>
 
-<h1>タイマー一覧</h1>
+<h3>タイマー一覧</h3>
+<div  class="text-center m-3">
+    <%= link_to "+ タイマーを作成する", new_timer_path,class: "px-5 btn btn-outline-success" %>
+</div>
 <% if current_user.timers.exists? %>
-    <table>
+    <table class="table table-striped table-hover thead">
         <thead>
             <tr>
                 <th><%= Timer.human_attribute_name("name")%></th>
@@ -23,8 +26,8 @@
                         <td><%= f.start_time.strftime('%H:%M')%></td>
                         <td><%= f.finish_time.strftime('%H:%M')%></td>
                         <td><%= f.character_i18n%></td>
-                        <td><%= link_to "編集", edit_timer_path(f)%></td>
-                        <td><%= link_to "削除", timer_path(f), method: :delete%></td>
+                        <td><%= link_to "編集", edit_timer_path(f), class: "btn btn-outline-info"%></td>
+                        <td><%= link_to "削除", timer_path(f), method: :delete, class: "btn btn-outline-danger"%></td>
                         <td></td>
                     </div>
             </tr>
@@ -35,5 +38,7 @@
     <p>タイマーはありません。新しく作成しましょう！</p>
 <%end%>
 
-<%= link_to "+ タイマー作成", new_timer_path %>
+<div  class="text-center m-3">
+    <%= link_to "+ タイマーを作成する", new_timer_path,class: "px-5 btn btn-outline-success" %>
+</div>
 <%= link_to "マイページ", edit_user_path(current_user) %>
