@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to login_path, notice: "ユーザーを作成しました"
+      redirect_to login_path, info: "ユーザーを作成しました"
     else
       render :new
     end
@@ -21,16 +21,16 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to edit_user_path(current_user), notice: "アカウントを更新しました"
+      redirect_to edit_user_path(current_user), info: "アカウントを更新しました"
     else
-      flash.now[:alert] = "アカウントを更新できませんでした"
+      flash.now[:warning] = "アカウントを更新できませんでした"
       render :edit
     end
   end
 
   def destroy
     @user.destroy!
-    redirect_to root_path, notice: "アカウントを削除しました"
+    redirect_to root_path, danger: "アカウントを削除しました"
   end
 
   private

@@ -2,8 +2,9 @@
 
 <h3><%= "#{@timer.name}"%>編集</h3>
 <%= form_with model: @timer, local: true do |f| %>
-    <%= render 'shared/error_messages', object: f.object %>   
-
+    <div class="col-md-6 offset-md-3">
+        <%= render 'shared/error_messages', object: f.object %>
+    </div>
     <div class="col-md-4 mb-3">
         <%= f.label :name, class: "form-label" %>
         <%= f.text_field :name, class: "form-control" %>

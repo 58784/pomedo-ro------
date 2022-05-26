@@ -7,12 +7,12 @@ class PasswordResetsController < ApplicationController
   def create
     @email = params[:email]
     if @email.blank?
-      flash.now[:alert] = "メーアドレスを入力してください"
+      flash.now[:warning] = "メーアドレスを入力してください"
       render :new
     else
       @user = User.find_by(email: params[:email])
       @user&.deliver_reset_password_instructions!
-      redirect_to login_path, notice: "メールを送信しました"
+      redirect_to login_path, primary: "メールを送信しました"
     end
   end
 
@@ -34,9 +34,9 @@ class PasswordResetsController < ApplicationController
       render :edit
     else
       if @user.change_password(params[:user][:password])
-        redirect_to login_path, notice: "パスワードを変更できました"
+        redirect_to login_path, primary: "パスワードを変更できました"
       else
-        flash.now[:danger] = "パスワード変更出来ませんでした"
+        flash.now[:warning] = "パスワード変更出来ませんでした"
         render :edit
       end
     end
