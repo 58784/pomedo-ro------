@@ -6,6 +6,7 @@
                     <li><%= link_to "HOME", timers_path, class: "nav-link px-2 text-white" %></li>
                 </ul>
                     <% if logged_in? %>
+                        <%= link_to "マイページ", edit_user_path(current_user), class: "nav-link me-1 px-2 text-white" %>
                         <%= link_to "Log out",logout_path, method: :delete, class: "btn btn-outline-light me-2"%>
                     <%else%>
                         <div class="text-end">
