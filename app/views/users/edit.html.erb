@@ -3,7 +3,10 @@
     <div class="form-signin">
         <h3 class= "my-5 fw-normal">マイページ</h3>
         <%= form_with model: @user, local: true do |f| %>
-            <%= render 'shared/error_messages', object: f.object %>
+            <div class="col-md-6 offset-md-3">
+                <%= render 'shared/error_messages', object: f.object %>
+            </div>
+            
             <div class="form-floating mb-3">
                 <%= f.text_field :email, class: "mx-2" %>
                 <%= f.submit "更新する", class: "btn btn-warning" %>

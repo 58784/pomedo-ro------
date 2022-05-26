@@ -12,9 +12,9 @@ class TimersController < ApplicationController
     def create
         @timer = current_user.timers.new(timer_params)
         if @timer.save
-            redirect_to timers_path, notice: "タイマーを作成しました"
+            redirect_to timers_path, info: "タイマーを作成しました"
         else
-            flash.now[:alert] = "タイマーを作成できませんでした"
+            flash.now[:warning] = "タイマーを作成できませんでした"
             render :new
         end
     end
@@ -24,16 +24,16 @@ class TimersController < ApplicationController
 
     def update
         if @timer.update(timer_params)
-            redirect_to timers_path, notice: "タイマーを更新しました"
+            redirect_to timers_path, info: "タイマーを更新しました"
         else
-            flash.now[:alert] = "タイマーを更新できませんでした"
+            flash.now[:warning] = "タイマーを更新できませんでした"
             render :edit
         end
     end
 
     def destroy
         @timer.destroy!
-        redirect_to timers_path, notice: "タイマーを削除しました"
+        redirect_to timers_path, danger: "タイマーを削除しました"
     end
 
     private
