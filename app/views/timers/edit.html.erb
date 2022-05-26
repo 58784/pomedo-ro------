@@ -33,6 +33,11 @@
         </div>
     </div>
 
+    <div class="col-md-3 mb-3">
+        <%= f.label :character, class: "form-label" %>
+        <%= f.select :character, Timer.characters_i18n.invert, {}, { class: "form-select" } %>
+    </div>
+
     <div class="form-check">
         <div class="row mb-3">
             <div><%= f.label :repetition %></div>
@@ -83,11 +88,6 @@
                 <%= f.radio_button :repetition, :sunday, class: "form-check-input", id: "formRadioDefault9" %>
             </div>
         </div>
-    </div>
-
-    <div>
-        <%= f.label :character %>
-        <%= f.select :character, Timer.characters_i18n.invert %>
     </div>
 
     <div>
